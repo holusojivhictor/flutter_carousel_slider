@@ -8,11 +8,6 @@ class CarouselOptions {
   /// Set carousel height and overrides any existing [aspectRatio].
   final double? height;
 
-  /// Aspect ratio is used if no height have been declared.
-  ///
-  /// Defaults to 16:9 aspect ratio.
-  final double aspectRatio;
-
   /// The fraction of the viewport that each page should occupy.
   ///
   /// Defaults to 0.8, which means each page fills 80% of the carousel.
@@ -135,7 +130,6 @@ class CarouselOptions {
 
   CarouselOptions({
     this.height,
-    this.aspectRatio = 16 / 9,
     this.viewportFraction = 0.8,
     this.initialPage = 0,
     this.enableInfiniteScroll = true,
@@ -164,35 +158,34 @@ class CarouselOptions {
 
   ///Generate new [CarouselOptions] based on old ones.
 
-  CarouselOptions copyWith(
-          {double? height,
-          double? aspectRatio,
-          double? viewportFraction,
-          int? initialPage,
-          bool? enableInfiniteScroll,
-          bool? reverse,
-          bool? autoPlay,
-          Duration? autoPlayInterval,
-          Duration? autoPlayAnimationDuration,
-          Curve? autoPlayCurve,
-          bool? enlargeCenterPage,
-          Function(int index, CarouselPageChangedReason reason)? onPageChanged,
-          ValueChanged<double?>? onScrolled,
-          ScrollPhysics? scrollPhysics,
-          bool? pageSnapping,
-          Axis? scrollDirection,
-          bool? pauseAutoPlayOnTouch,
-          bool? pauseAutoPlayOnManualNavigate,
-          bool? pauseAutoPlayInFiniteScroll,
-          PageStorageKey? pageViewKey,
-          CenterPageEnlargeStrategy? enlargeStrategy,
-          double? enlargeFactor,
-          bool? disableCenter,
-          Clip? clipBehavior,
-          bool? padEnds}) =>
+  CarouselOptions copyWith({
+    double? height,
+    double? viewportFraction,
+    int? initialPage,
+    bool? enableInfiniteScroll,
+    bool? reverse,
+    bool? autoPlay,
+    Duration? autoPlayInterval,
+    Duration? autoPlayAnimationDuration,
+    Curve? autoPlayCurve,
+    bool? enlargeCenterPage,
+    Function(int index, CarouselPageChangedReason reason)? onPageChanged,
+    ValueChanged<double?>? onScrolled,
+    ScrollPhysics? scrollPhysics,
+    bool? pageSnapping,
+    Axis? scrollDirection,
+    bool? pauseAutoPlayOnTouch,
+    bool? pauseAutoPlayOnManualNavigate,
+    bool? pauseAutoPlayInFiniteScroll,
+    PageStorageKey? pageViewKey,
+    CenterPageEnlargeStrategy? enlargeStrategy,
+    double? enlargeFactor,
+    bool? disableCenter,
+    Clip? clipBehavior,
+    bool? padEnds,
+  }) =>
       CarouselOptions(
         height: height ?? this.height,
-        aspectRatio: aspectRatio ?? this.aspectRatio,
         viewportFraction: viewportFraction ?? this.viewportFraction,
         initialPage: initialPage ?? this.initialPage,
         enableInfiniteScroll: enableInfiniteScroll ?? this.enableInfiniteScroll,
